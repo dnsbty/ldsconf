@@ -26,6 +26,6 @@ app.get('/', function(request, response) {
 });
 
 //start the server listening for requests
-server.listen(app.get('port'), function() {
+app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'));
 });
