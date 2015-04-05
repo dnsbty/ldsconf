@@ -5,6 +5,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
 app.set('port', (process.env.PORT || 5000));
+app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
 
 //set up the twitter instance
@@ -18,7 +19,14 @@ var twitter = new Twit({
 
 //homepage
 app.get('/', function(request, response) {
-  response.send('Hello world!');
+  response.render('index');
+});
+
+io.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
 });
 
 //start the server listening for requests
