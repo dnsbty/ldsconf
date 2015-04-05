@@ -1,7 +1,7 @@
 $(function(){
 
   var paused = false;
-  var interval = 1;
+  var length = 2;
   var haveTweet = false;
   var latestTweet;
 
@@ -13,14 +13,7 @@ $(function(){
   });
 
   //show tweets
-  // var myFunction = function(){
-  //   clearInterval(interval);
-  //   length = 1000 * interval;
-  //   interval = setInterval(myFunction, counter);
-  // }
-  // var interval = setInterval(myFunction, counter);
-
-  setInterval(function() {
+  var showTweet = function(){
   	if (paused == false && haveTweet == true)
   	{
   	  var tweet = latestTweet;
@@ -30,7 +23,12 @@ $(function(){
                      .append('<p>'+tweet.text+'</p>');
       haveTweet = false;
   	}
-  }, 1000*interval);
+
+  	//reset the interval in case it changed
+    clearInterval(interval);
+    interval = setInterval(showTweet, length*1000);
+  }
+  var interval = setInterval(showTweet, length*1000);
 
   //pause button handling
   $('a[rel=pause]').on('click', function(){
