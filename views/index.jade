@@ -3,12 +3,15 @@ html
     title #LDSconf
     meta(name='viewport',content='width=device-width,initial-scale=1')
     link(href='/styles/global.css',rel='stylesheet')
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',rel='stylesheet')
   body
-    div.container
+    header
       h1.title #LDSconf
-      div.video
-        iframe(src='https://www.youtube.com/embed/Tx02onI6T9c',frameborder='0',allowfullscreen)
-      div.tweets
+      a(rel='pause')
+        i.fa.fa-pause
+    div.video
+      iframe(src='https://www.youtube.com/embed/Tx02onI6T9c',frameborder='0',allowfullscreen)
+    div.tweets
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
     script(src='//cdn.socket.io/socket.io-1.3.4.js')
     script(src='/scripts/global.js')
