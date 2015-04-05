@@ -17,17 +17,28 @@ var twitter = new Twit({
   access_token_secret: process.env.TWITTER_ACCESS_SECRET
 });
 
+//start twitter stream
+var stream = twitter.stream('statuses/filter', { track: '#ldsconf', language: 'en' });
+stream.on('tweet', function (tweet) {
+  io.emit('new tweet', {
+    id: tweet.id,
+    user: tweet.user.screen_name,
+    text: tweet.text,
+    profile_image: tweet.user.profile_image_url_https
+  });
+});
+
 //homepage
 app.get('/', function(request, response) {
   response.render('index');
 });
 
-io.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-});
+// io.on('connection', function (socket) {
+//   socket.emit('news', { hello: 'world' });
+//   socket.on('my other event', function (data) {
+//     console.log(data);
+//   });
+// });
 
 //start the server listening for requests
 server.listen(app.get('port'), function() {

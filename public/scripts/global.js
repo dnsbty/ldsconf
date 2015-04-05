@@ -1,7 +1,11 @@
 $(function(){
   var socket = io.connect(window.location.host);
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
+  socket.on('new tweet', function (tweet) {
+    console.log(tweet);
+    $('.container').prepend('<div class="tweet" id="'+tweet.id+'"></div>');
+    $('#'+tweet.id).append('<img class="profile-image" src="'+tweet.profile_image+'">')
+                   .append('<h2>'+tweet.user+'</h2>')
+                   .append('<p>'+tweet.text+'</p>');
+    //socket.emit('my other event', { my: 'data' });
   });
 });
