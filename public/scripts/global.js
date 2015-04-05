@@ -1,18 +1,36 @@
 $(function(){
 
   var paused = false;
+  var interval = 1;
+  var haveTweet = false;
+  var latestTweet;
 
   //bring in tweets
   var socket = io.connect(window.location.host);
   socket.on('new tweet', function (tweet) {
-  	if (paused == false)
+  	latestTweet = tweet;
+  	haveTweet = true;
+  });
+
+  //show tweets
+  // var myFunction = function(){
+  //   clearInterval(interval);
+  //   length = 1000 * interval;
+  //   interval = setInterval(myFunction, counter);
+  // }
+  // var interval = setInterval(myFunction, counter);
+
+  setInterval(function() {
+  	if (paused == false && haveTweet == true)
   	{
+  	  var tweet = latestTweet;
   	  $('.tweets').prepend('<div class="tweet" id="'+tweet.id+'"></div>');
       $('#'+tweet.id).append('<img class="profile-image" src="'+tweet.profile_image+'">')
                      .append('<h2>'+tweet.user+'</h2>')
                      .append('<p>'+tweet.text+'</p>');
+      haveTweet = false;
   	}
-  });
+  }, 1000*interval);
 
   //pause button handling
   $('a[rel=pause]').on('click', function(){
