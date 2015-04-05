@@ -1,6 +1,19 @@
+body {
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	margin: 0;
+}
+h1 {
+	margin: 0;
+	padding: .25em .5em .5em .5em;
+	background-color: #2a3753;
+	color: #fff;
+	font-size: 2em;
+}
 div.tweet {
 	overflow: hidden;
-	margin-bottom: 1em;
+	padding: .5em;
+	border-bottom: 1px solid #999;
 }
 h2 {
 	margin: 0;
@@ -11,4 +24,7 @@ p {
 img.profile-image {
 	float: left;
 	margin-right: 1em;
+}
+div.video {
+	display: none;
 }
