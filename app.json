@@ -1,7 +1,12 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"]
+  "name": "#LDSconf",
+  "description": "A Node.js app for watching #LDSconf tweets in real-time",
+  "repository": "https://github.com/dnsbty/ldsconf",
+  "keywords": [
+    "node",
+    "express",
+    "ldsconf",
+    "lds",
+    "mormon",
+    "general conference"]
 }
