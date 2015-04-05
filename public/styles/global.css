@@ -5,19 +5,34 @@ body {
 }
 header {
 	margin: 0;
-	padding: .5em 1em 1em 1em;
+	padding: .5em 1em;
 	background-color: #2a3753;
 	color: #fff;
 }
 h1 {
 	margin: 0;
 	font-size: 2em;
+	display: inline-block;
 }
-a[rel=pause] {
+header a {
 	cursor: hand;
 	float: right;
 	font-size: 2em;
-	margin-top: -1em;
+	margin: .1em 0 0 .25em;
+}
+div.speed {
+	background-color: #0091bc;
+	color: #fff;
+	padding: .5em;
+	display: none;
+}
+div.speed p {
+	display: inline-block;
+}
+div.speed a {
+	cursor: hand;
+	margin: 0 .25em;
+	float: right;
 }
 div.tweet {
 	overflow: hidden;

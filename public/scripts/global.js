@@ -30,6 +30,22 @@ $(function(){
   }
   var interval = setInterval(showTweet, length*1000);
 
+  //change speed
+  $('a[rel=speed]').on('click', function(){
+    $('div.speed').toggle();
+  });
+  $('a[rel=speedUp]').on('click', function(){
+  	length += 1;
+  	$('span.speed').text(length);
+  });
+  $('a[rel=slowDown]').on('click', function(){
+  	if (length > 0)
+  	{
+  	  length -= 1;
+  	  $('span.speed').text(length);
+  	}
+  });
+
   //pause button handling
   $('a[rel=pause]').on('click', function(){
   	if (paused == false)
@@ -42,7 +58,6 @@ $(function(){
       paused = false;
       $(this).html('<i class="fa fa-pause"></i>')
   	}
-  	
   });
 });
 
