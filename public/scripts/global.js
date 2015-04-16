@@ -20,7 +20,8 @@ $(function(){
   	  $('.tweets').prepend('<div class="tweet" id="'+tweet.id+'"></div>');
       $('#'+tweet.id).append('<img class="profile-image" src="'+tweet.profile_image+'">')
                      .append('<h2>'+tweet.user+'</h2>')
-                     .append('<p>'+tweet.text+'</p>');
+                     .append('<p class="tweet">'+tweet.text+'</p>');
+      $('#'+tweet.id+' p.tweet').tweetParser();
       haveTweet = false;
   	}
 

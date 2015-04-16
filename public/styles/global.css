@@ -48,6 +48,8 @@ p {
 img.profile-image {
 	float: left;
 	margin-right: 1em;
+	height: 48px;
+	width: 48px;
 }
 div.video {
 	display: none;

@@ -23,7 +23,7 @@ var twitter = new Twit({
 });
 
 //start twitter stream
-var stream = twitter.stream('statuses/filter', { track: '#ldsconf', language: 'en' });
+/*var stream = twitter.stream('statuses/filter', { track: '#ldsconf', language: 'en' });
 stream.on('tweet', function (tweet) {
   io.emit('new tweet', {
     id: tweet.id,
@@ -31,11 +31,29 @@ stream.on('tweet', function (tweet) {
     text: tweet.text,
     profile_image: tweet.user.profile_image_url_https
   });
-});
+});*/
 
 //homepage
 app.get('/', function(request, response) {
   response.render('index');
+});
+
+app.get('/q/:query', function (req, res, next) {
+  //start twitter stream
+  console.log('Got a request for ' + req.params.query);
+  var stream = twitter.stream('statuses/filter', { track: req.params.query, language: 'en' });
+  console.log('Tracking it.');
+  stream.on('tweet', function (tweet) {
+    console.log('Got a new tweet');
+    console.log(tweet.text);
+    io.emit('new tweet', {
+      id: tweet.id,
+      user: tweet.user.screen_name,
+      text: tweet.text,
+      profile_image: tweet.user.profile_image_url_https
+    });
+  });
+  res.render('index');
 });
 
 // io.on('connection', function (socket) {
