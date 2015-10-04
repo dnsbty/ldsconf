@@ -17,10 +17,12 @@ $(function(){
   	if (paused == false && haveTweet == true)
   	{
   	  var tweet = latestTweet;
-  	  $('.tweets').prepend('<div class="tweet" id="'+tweet.id+'"></div>');
-      $('#'+tweet.id).append('<img class="profile-image" src="'+tweet.profile_image+'">')
-                     .append('<h2>'+tweet.user+'</h2>')
-                     .append('<p class="tweet">'+tweet.text+'</p>');
+  	  $('.tweets').prepend('<div class="media tweet" id="'+tweet.id+'"></div>');
+      $('#'+tweet.id).append('<p class="text">'+tweet.text+'</p>')
+                     .append('<footer></footer>');
+      $('#'+tweet.id+' footer').append('<img class="img profile" src="'+tweet.profile_image+'">')
+                               .append('<div class="username"><a href="http://twitter.com/'+tweet.user+'">@'+tweet.user+'</a></div>')
+                               .append('<div class="link"><a href="https://twitter.com/statuses/'+tweet.id+'"><i class="fa fa-2x fa-link"></i></a>');
       $('#'+tweet.id+' p.tweet').tweetParser();
       haveTweet = false;
   	}

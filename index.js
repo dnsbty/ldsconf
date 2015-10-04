@@ -26,7 +26,7 @@ var twitter = new Twit({
 var stream = twitter.stream('statuses/filter', { track: '#ldsconf', language: 'en' });
 stream.on('tweet', function (tweet) {
   io.emit('new tweet', {
-    id: tweet.id,
+    id: tweet.id_str,
     user: tweet.user.screen_name,
     text: tweet.text,
     profile_image: tweet.user.profile_image_url_https

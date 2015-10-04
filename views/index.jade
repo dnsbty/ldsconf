@@ -5,7 +5,7 @@ html
     link(href='/styles/global.css',rel='stylesheet')
     link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',rel='stylesheet')
   body
-    header
+    header.main
       h1.title #LDSconf
       a(rel='pause')
         i.fa.fa-pause
@@ -17,9 +17,10 @@ html
         i.fa.fa-arrow-up
       a(rel='slowDown')
         i.fa.fa-arrow-down
-    div.video
-      iframe(src='https://www.youtube.com/embed/Tx02onI6T9c',frameborder='0',allowfullscreen)
-    div.tweets
+    main
+      div.video
+        iframe(src='https://www.youtube.com/embed/Tx02onI6T9c',frameborder='0',allowfullscreen)
+      div.tweets
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
     script(src='//cdn.socket.io/socket.io-1.3.4.js')
     script(src='/scripts/jquery.tweetParser.min.js')
