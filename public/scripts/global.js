@@ -22,7 +22,7 @@ $(function(){
                      .append('<footer></footer>');
       $('#'+tweet.id+' footer').append('<img class="img profile" src="'+tweet.profile_image+'">')
                                .append('<div class="username"><a href="http://twitter.com/'+tweet.user+'">@'+tweet.user+'</a></div>')
-                               .append('<div class="link"><a href="https://twitter.com/statuses/'+tweet.id+'"><i class="fa fa-2x fa-link"></i></a>');
+                               .append('<div class="link"><a href="https://twitter.com/'+tweet.user+'/status/'+tweet.id+'"><i class="fa fa-2x fa-link"></i></a>');
       $('#'+tweet.id+' p.tweet').tweetParser();
       haveTweet = false;
   	}

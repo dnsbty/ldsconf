@@ -158,4 +158,7 @@ div.link {
 	figure img {
 		max-width: 100%;
 	}
+	div.link {
+		margin-top: 0.4em;
+	}
 }
